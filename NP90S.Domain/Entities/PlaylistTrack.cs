@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NP90S.Domain.Common;
 
 namespace NP90S.Domain.Entities
 {
-    internal class PlaylistTrack
+    public class PlaylistTrack:AuditableEntity
     {
+        public long Id { get; set; }
+        public long TrackId { get; set; }
     }
 }

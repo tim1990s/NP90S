@@ -64,6 +64,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NP90S.API.IntegrationTests"
 		{8726B487-B9AD-4188-A93A-B595AD079ADF} = {8726B487-B9AD-4188-A93A-B595AD079ADF}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "design", "design", "{5B6E4B8B-8D3D-4A48-9FA9-1A85ABEBED1E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{45DB4867-5CC3-45BB-B59D-CCA7FC4459F8}"
+	ProjectSection(SolutionItems) = preProject
+		Design\db.sqlite = Design\db.sqlite
+		Design\Db_main_diagram.png = Design\Db_main_diagram.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +137,7 @@ Global
 		{0E639259-09EC-465C-A8B1-4BF853357364} = {BB1BF217-FC41-447E-BC80-44C22BD10E1F}
 		{0E5C5AC4-53DE-4F03-B189-BEDE1FF78136} = {986D7BF1-7B1D-4109-BFC0-5FB3EE7874BE}
 		{41F84BDA-A554-48A7-9353-33E22B01DFCD} = {02044676-EAC3-46AD-AA14-B1CAC10A7A64}
+		{45DB4867-5CC3-45BB-B59D-CCA7FC4459F8} = {5B6E4B8B-8D3D-4A48-9FA9-1A85ABEBED1E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4EA1B261-5A84-4E69-92A7-F2BE162F6618}
