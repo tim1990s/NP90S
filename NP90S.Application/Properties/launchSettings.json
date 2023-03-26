@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "NP90S.Application": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:58168;http://localhost:58169"
+    }
+  }
+}

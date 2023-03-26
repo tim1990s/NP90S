@@ -22,4 +22,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NP90S.Application\NP90S.Application.csproj" />
+    <ProjectReference Include="..\NP90S.Domain\NP90S.Domain.csproj" />
+    <ProjectReference Include="..\NP90S.Persistence\NP90S.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

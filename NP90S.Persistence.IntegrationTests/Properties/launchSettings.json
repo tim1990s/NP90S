@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "NP90S.Persistence.IntegrationTests": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:58166;http://localhost:58167"
+    }
+  }
+}
