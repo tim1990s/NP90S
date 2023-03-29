@@ -1,19 +1,23 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using NP90S.Application.Contracts.Persistence;
+using NP90S.Application.Contracts.Persistence.AlbumEntity;
+using NP90S.Application.Models.Album;
 using NP90S.Domain.Entities;
 
 namespace NP90S.Persistence.ApplicationDbContexts
 {
-    public class AlbumContext : IAlbumContext
+  public class AlbumContext : IAlbumContext
     {
-        public AlbumContext(IConfiguration configuration)
-        {
-            var client = new MongoClient(configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
-            var database = client.GetDatabase(configuration.GetValue<string>("DatabaseSettings:DatabaseName"));
+        private readonly AlbumMongoContextOption _albumMongoContextOption;
 
-            Albums = database.GetCollection<Album>(configuration.GetValue<string>("DatabaseSettings:CollectionName"));
-            //AlbumsContextSeed.SeedData(Albums);
+        public AlbumContext(IConfiguration configuration, IOptions<AlbumMongoContextOption> albumMongoContextOption)
+        {
+            _albumMongoContextOption = albumMongoContextOption.Value;
+            var client = new MongoClient(configuration.GetValue<string>(_albumMongoContextOption.ConnectionString));
+            var database = client.GetDatabase(configuration.GetValue<string>(_albumMongoContextOption.DatabaseName));
+            Albums = database.GetCollection<Album>(configuration.GetValue<string>(_albumMongoContextOption.CollectionName));
+            AlbumContextSeed.SeedData(Albums);
         }
 
         public IMongoCollection<Album> Albums { get; }
