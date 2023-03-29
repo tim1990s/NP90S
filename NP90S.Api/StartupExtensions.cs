@@ -20,19 +20,14 @@ namespace NP90S.Api
       });
 
       return builder.Build();
-
     }
 
     public static WebApplication ConfigurePipeline(this WebApplication app)
     {
-
       if (app.Environment.IsDevelopment())
       {
         app.UseSwagger();
-        app.UseSwaggerUI(c =>
-        {
-          c.SwaggerEndpoint("/swagger/v1/swagger.json", "NP90S API");
-        });
+        app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "NP90S API"); });
       }
 
       app.UseHttpsRedirection();
@@ -44,7 +39,6 @@ namespace NP90S.Api
       app.MapControllers();
 
       return app;
-
     }
 
     private static void AddSwagger(IServiceCollection services)
@@ -55,7 +49,6 @@ namespace NP90S.Api
         {
           Version = "v1",
           Title = "NP90S API",
-
         });
       });
     }
