@@ -1,22 +1,20 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
-using MongoDB.Driver;
-using NP90S.Application.Contracts.Persistence.AlbumEntity;
-using NP90S.Application.Models.Album;
+﻿using MongoDB.Driver;
 using NP90S.Domain.Entities;
+using Microsoft.Extensions.Options;
+using NP90S.Application.Models.Album;
+using Microsoft.Extensions.Configuration;
+using NP90S.Application.Contracts.Persistence.AlbumEntity;
 
 namespace NP90S.Persistence.ApplicationDbContexts
 {
   public class AlbumContext : IAlbumContext
     {
-        private readonly AlbumMongoContextOption _albumMongoContextOption;
-
         public AlbumContext(IConfiguration configuration, IOptions<AlbumMongoContextOption> albumMongoContextOption)
         {
-            _albumMongoContextOption = albumMongoContextOption.Value;
-            var client = new MongoClient(configuration.GetValue<string>(_albumMongoContextOption.ConnectionString));
-            var database = client.GetDatabase(configuration.GetValue<string>(_albumMongoContextOption.DatabaseName));
-            Albums = database.GetCollection<Album>(configuration.GetValue<string>(_albumMongoContextOption.CollectionName));
+            var albumDatabaseOptions = albumMongoContextOption.Value;
+            var client = new MongoClient(albumDatabaseOptions.ConnectionString);
+            var database = client.GetDatabase(albumDatabaseOptions.DatabaseName);
+            Albums = database.GetCollection<Album>(albumDatabaseOptions.CollectionName);
             AlbumContextSeed.SeedData(Albums);
         }
 

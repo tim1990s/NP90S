@@ -22,11 +22,20 @@ namespace NP90S.Persistence.ApplicationDbContexts
           new Album()
           {
               Id= 1,
-              CreatedBy= "John",
+              CreatedBy= "John Papa",
               CreatedDate = 1680044193,
-              LastModifiedBy = "Peter",
+              LastModifiedBy = "Peter White",
               LastModifiedDate = 0,
-              Title = "Under the cover"
+              Title = "What Right Thing To Do."
+          },
+          new Album()
+          {
+            Id= 2,
+            CreatedBy= "Stive",
+            CreatedDate = 1680044193,
+            LastModifiedBy = "Tim Nguyen",
+            LastModifiedDate = 0,
+            Title = "C# 10.0 For The Beginner."
           }
       };
     }

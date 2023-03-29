@@ -1,7 +1,9 @@
 ﻿using Microsoft.OpenApi.Models;
+using NP90S.Application;
 using NP90S.Application.Contracts.Persistence.AlbumEntity;
 using NP90S.Persistence;
 using NP90S.Persistence.ApplicationDbContexts;
+using NP90S.Persistence.Repositories;
 
 namespace NP90S.Api
 {
@@ -10,8 +12,10 @@ namespace NP90S.Api
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
       AddSwagger(builder.Services);
+      builder.Services.AddApplicationServices();
       builder.Services.AddPersistenceServices(builder.Configuration);
       builder.Services.AddScoped<IAlbumContext, AlbumContext>();
+      builder.Services.AddScoped<IAlbumRepository, AlbumRepository>();
       builder.Services.AddHttpContextAccessor();
       builder.Services.AddControllers();
       builder.Services.AddCors(options =>
